@@ -1,4 +1,4 @@
-import Header from '../comps/Header';
+import Header from "../comps/header"
 import Footer from "../comps/footer";
 import Link from 'next/link'
 
