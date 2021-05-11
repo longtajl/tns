@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import Header from "../../comps/header";
 import useSWR from 'swr';
+import Header from "../../comps/header";
+import Footer from "../../comps/footer";
 
 async function fetcher(url) {
     const response = await fetch(url);
@@ -43,17 +44,26 @@ export default function Page({year}) {
     }
 
     return (
-        <div className="h-screen">
+        <div className='h-screen w-screen relative'>
             <Header year={year}/>
-            <div className="w-3/4 mx-auto pb-10 pt-5">
+            <div className="w-3/4 mx-auto absolute left-0 right-0 bottom-12 top-12">
+                <div className='mb-4 text-xl flex'>
+                    <h1>{year}年 関東ジュニアトーナメントスケジュール</h1>
+                    <span className='ml-4 leading-10 text-xs'>※最新情報はこちらからご確認ください</span>
+                    <a className='ml-1 leading-10 text-xs'
+                       target='_blank' href='https://www.kanto-tennis.com/jrguidefol/jrtournament.sc.pdf'>参照元</a>
+                </div>
                 <div className="text-sm h-20">
                     <div className="pb-2 pl-1 flex">
                         <div className='mr-2'>テキストで絞り込む</div>
                         {keys.map((s, i) => {
                             return (
                                 <div className='ml-2' key={`checkbox_${i}`}>
-                                    <input id={`key_${i}`} className='h-6 align-middle' type="checkbox" name="key" value={i}
-                                           onChange={(e) => { onChangeFilterIndex(parseInt(e.target.value)) }}
+                                    <input id={`key_${i}`} className='h-6 align-middle' type="checkbox" name="key"
+                                           value={i}
+                                           onChange={(e) => {
+                                               onChangeFilterIndex(parseInt(e.target.value))
+                                           }}
                                     />
                                     <label htmlFor={`key_${i}`} className="ml-1">{s}</label>
                                 </div>
@@ -63,7 +73,9 @@ export default function Page({year}) {
                     <input
                         className="shadow appearance-none border rounded w-3/4 py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         value={keyword} name="text" type="text" placeholder="keyword"
-                        onChange={(e) => { onChangeKeyword(e.target.value) }}
+                        onChange={(e) => {
+                            onChangeKeyword(e.target.value)
+                        }}
                     />
                 </div>
                 <table className='table-auto text-xs'>
@@ -91,7 +103,9 @@ export default function Page({year}) {
                                 <td className='text-left p-2 border'>{trimText(d[keys[3]])}</td>
                                 <td className='text-left p-2 border'>{trimText(d[keys[5]])}</td>
                                 <td className='text-left p-2 border'>{trimText(d[keys[6]])}</td>
-                                <td className='text-left p-2 border'><a href={d[keys[8]]} target="_blank">{trimText(d[keys[8]])}</a><br/>{d[keys[7]]}</td>
+                                <td className='text-left p-2 border'><a href={d[keys[8]]}
+                                                                        target="_blank">{trimText(d[keys[8]])}</a><br/>{d[keys[7]]}
+                                </td>
                                 <td className='text-left p-2 border'>{trimText(d[keys[9]])}</td>
                             </tr>
                         )
@@ -99,6 +113,7 @@ export default function Page({year}) {
                     </tbody>
                 </table>
             </div>
+            <Footer/>
         </div>
     )
 }
