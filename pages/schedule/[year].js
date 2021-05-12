@@ -55,7 +55,7 @@ export default function Page({year}) {
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
             <Header year={year}/>
-            <div className="sm:w-3/4 pl-2 pr-2 sm:pl-0 sm:pr-0 mx-auto pt-6 pb-20">
+            <div className="sm:w-3/5 pl-2 pr-2 sm:pl-0 sm:pr-0 mx-auto pt-6 pb-20">
                 <div className='sm:mb-4 sm:text-xl sm:flex'>
                     <h1>{year}年度関東ジュニアトーナメントスケジュール</h1>
                     <span className='sm:ml-4 leading-10 text-xs'>※最新情報はこちらからご確認ください</span>

@@ -8,22 +8,23 @@ export default function Home() {
         <div className='font-mono h-screen w-screen md:min-h-full'>
             <Head>
                 <title>tennis plus+</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
             <Header/>
-            <div className="w-3/4 mx-auto">
-
-                <div className='mt-6'>
-                    <div>大会情報</div>
-                    <ul className="text-sm list-none md:list-disc">
-                        <li>
-                            <Link href="/schedule/2021">
-                                <a>2021年 関東ジュニアトーナメントスケジュール</a>
-                            </Link>
-                        </li>
-                    </ul>
+            <div className="w-fullscreen sm:w-3/5 mx-auto p-1 flex">
+                <div className='flex-auto m-1 sm:mt-6'>
+                    <div className='mb-2'>
+                        <h2>大会情報</h2>
+                        <ul className="text-sm list-none md:list-disc">
+                            <li>
+                                <Link href="/schedule/2021">
+                                    <a>2021年 関東ジュニアトーナメントスケジュール</a>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-
+                <div className='flex-1 m-1 sm:mt-6'/>
             </div>
             <Footer/>
         </div>
