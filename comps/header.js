@@ -1,9 +1,11 @@
 export default function Header({}) {
     return (
-        <div className="border-b border-gray-500 h-12 bg-white fixed top-0 right-0 left-0">
-            <div className="w-3/4 mx-auto">
+        <div className="font-mono border-b border-gray-500 bg-white">
+            <div className="w-3/4 mx-auto pt-1 pb-1">
                 <div className="flex">
-                    <h1 className="leading-10">関東ジュニア - テニス Information</h1>
+                    <h1 className="leading-10 text-base">
+                        <a href="/">tennis plus+</a>
+                    </h1>
                 </div>
             </div>
         </div>
